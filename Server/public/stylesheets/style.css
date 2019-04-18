@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  background: #373737;
+  color: #a0ffca;
+  font: 14px "Lucida Console", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  padding: 0.5em;
+  padding-left: 1em;
+  border: 1px solid black;
+  border-left: 4px solid #a0ffca;
+  border-radius: 5px;
+  color: lightyellow;
+  font-size: 16px;
+}

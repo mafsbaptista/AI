@@ -1,0 +1,6 @@
+.idea
+*.iml
+
+Server/node_modules
+Server/.eslintrc.json
+access.log
