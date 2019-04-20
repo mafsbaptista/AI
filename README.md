@@ -12,7 +12,7 @@ To run the server locally:
 
 ## Getting started
 
-## Arduino
+### Arduino
 Upload the code located in the directory **/Arduino/** to the Arduino board.
 
 ## How to run
