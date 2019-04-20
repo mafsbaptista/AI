@@ -32,5 +32,8 @@ The server will be available at _https://<name_of_the_machine>.herokuapp.com_.
 
 We have a server deployed with the most recent code at https://homecontrolserver.herokuapp.com
 
-## Arduino
+### Arduino
+Depending whether your server is running locally or on a virtual machine, you need to write the server url in the arduino code (line 14).
+By default, the server is _homecontrolserver.herokuapp.com_.
+
 Connect the arduino to a power source.
