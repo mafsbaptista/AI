@@ -1,0 +1,17 @@
+{
+  "masterbedroom": {
+    "lights": {
+      "tall_lamp": "1",
+      "nightstand_lamp": "0",
+      "ceiling_lamp": "1",
+      "desk_lamp": "0"
+    },
+    "temperature": {
+      "heating_device": "22"
+    },
+    "appliances": {
+      "tv": "0",
+      "music": "100"
+    }
+  }
+}
