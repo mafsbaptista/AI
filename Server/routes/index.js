@@ -14,4 +14,6 @@ router.get('/', (req, res, next) => {
 
 router.get('/:division/:type/:object', stateController.requestState);
 
+router.post('/:division/:type/:object', stateController.changeState);
+
 module.exports = router;
