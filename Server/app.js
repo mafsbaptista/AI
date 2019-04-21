@@ -7,6 +7,13 @@ const rfs = require('rotating-file-stream');
 const indexRouter = require('./routes/index');
 
 const app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+app.use(function(req, res, next){
+  res.io = io;
+  next();
+});
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,4 +42,4 @@ app.use(express.static(path.join(__dirname, 'home-control-client/build')));
 
 app.use('/', indexRouter);
 
-module.exports = app;
+module.exports = { app, server };

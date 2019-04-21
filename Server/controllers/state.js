@@ -23,14 +23,14 @@ var changeState = function(req, res) {
     const content = fs.readFileSync(filePath);
     const serverState = JSON.parse(content);
 
-    console.log(newState);
     serverState[division][type][object] = newState;
-    console.log(serverState[division][type][object]);
 
     fs.writeFile(filePath, JSON.stringify(serverState, null, 2), function (err) {
         if(err) res.status(400);
-        res.status(200).send();
+        res.status(200);
     });
+    res.io.emit('newState', req);
+    res.send();
 };
 
 module.exports = {
