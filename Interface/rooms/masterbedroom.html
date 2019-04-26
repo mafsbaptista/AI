@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
@@ -25,7 +25,7 @@ body {font-size:16px;}
 <body>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:400px;font-weight:bold;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-light-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:350px;font-weight:bold" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>HomeControl<br></b></h3>
@@ -39,7 +39,7 @@ body {font-size:16px;}
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+<header class="w3-container w3-top w3-hide-large w3-light-grey w3-xlarge w3-padding">
   <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
   <span>HomeControl</span>
 </header>
@@ -52,9 +52,9 @@ body {font-size:16px;}
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="generalsettings">
-    <h1 class="w3-jumbo"><b>Master Bedroom</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>General Seetings</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h1 class="w3-jumbo w3-text-grey "><b>Master Bedroom</b></h1>
+    <h1 class="w3-xxxlarge w3-text-teal"><b>General Seetings</b></h1>
+    <hr style="width:50px;border:5px solid teal" class="w3-round">
   </div>
   
  <div class="w3-panel">
@@ -99,8 +99,8 @@ body {font-size:16px;}
   
   <!-- Lighting -->
   <div class="w3-container" id="lighting" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Lights</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h1 class="w3-xxxlarge w3-text-teal"><b>Lights</b></h1>
+    <hr style="width:50px;border:5px solid teal" class="w3-round">
  
 
  <!-- Switch table -->
@@ -217,8 +217,8 @@ body {font-size:16px;}
   
   <!-- Temperature -->
   <div class="w3-container" id="temperature" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Temperature</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h1 class="w3-xxxlarge w3-text-teal"><b>Temperature</b></h1>
+    <hr style="width:50px;border:5px solid teal" class="w3-round">
  
 
  <!-- Switch table -->
@@ -277,8 +277,8 @@ body {font-size:16px;}
 
 
  <div class="w3-container" id="temperature" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Entertainment</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h1 class="w3-xxxlarge w3-text-teal"><b>Entertainment</b></h1>
+    <hr style="width:50px;border:5px solid teal" class="w3-round">
  
 
  <!-- Switch table -->
@@ -337,9 +337,14 @@ body {font-size:16px;}
 
 <!-- End page content -->
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 <!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">HomeControl</a></p></div>
 
 <script>
 // Script to open and close sidebar
@@ -590,7 +595,7 @@ document.addEventListener("click", closeAllSelect);
 }
 
 input:checked + .slider {
-  background-color: #ff4d4d;
+  background-color: #01b18e; /*cor */
 }
 
 input:focus + .slider {
@@ -644,7 +649,7 @@ input:checked + .slider:before {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #ff4d4d; /* Cor da bolinha */
+  background: #01b18e; /* Cor da bolinha */
   cursor: pointer;
 }
 
@@ -662,7 +667,8 @@ input:checked + .slider:before {
 /*the container must be positioned relative:*/
 .custom-select {
   position: relative;
-  font-family: Poppins;
+  font-family: "Raleway", sans-serif;
+
 }
 
 .custom-select select {
@@ -670,7 +676,7 @@ input:checked + .slider:before {
 }
 
 .select-selected {
-  background-color: #ff4d4d;;
+  background-color: #01b18e;
 }
 
 /*style the arrow inside the select element:*/
@@ -704,7 +710,7 @@ input:checked + .slider:before {
 /*style items (options):*/
 .select-items {
   position: absolute;
-  background-color: #ff4d4d;
+  background-color: #01b18e;
   top: 90%;
   left: 0;
   right: 0;
