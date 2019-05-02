@@ -13,7 +13,9 @@ To run the server locally:
 ## Getting started
 
 ### Arduino
+Donwload the library located at https://github.com/washo4evr/Socket.io-v1.x-Library and save it in the Arduino libraries folder.
 Upload the code located in the directory **/Arduino/** to the Arduino board.
+
 
 ## How to run
 ### Server
