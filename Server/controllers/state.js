@@ -32,8 +32,15 @@ var changeState = function (req, res) {
             }
             res.status(200);
         });
-    res.io.emit('newState',
-        {division: division, type: type, object: object, state: newState});
+    res.io
+    .emit('newState', {
+        state: {
+            division: division,
+            type: type,
+            object: object,
+            state: newState
+        }
+    });
     res.send();
 };
 
