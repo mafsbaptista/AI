@@ -22,6 +22,11 @@ body {font-size:16px;}
 
 
 </style>
+<head>
+  <link rel="shortcut icon" href="images/logonbks.ico" type="image/x-icon"/>
+</head>
+
+
 <body>
 
 <!-- Sidebar/menu -->
@@ -34,7 +39,8 @@ body {font-size:16px;}
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Main Control Panel</a> 
     <a href="#generalsettings" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">General Settings</a> 
     <a href="#lighting" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Lighting</a> 
-    <a href="#temperature" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Temperature</a> 
+    <a href="#temperature" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Temperature</a>
+    <a href="#entertainment" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Entertainment</a> 
   </div>
 </nav>
 
@@ -276,7 +282,7 @@ body {font-size:16px;}
 
 
 
- <div class="w3-container" id="temperature" style="margin-top:75px">
+ <div class="w3-container" id="entertainment" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-teal"><b>Entertainment</b></h1>
     <hr style="width:50px;border:5px solid teal" class="w3-round">
  
@@ -299,7 +305,7 @@ body {font-size:16px;}
           </tr>
           <tr>
             <td>Music</td>
-            <td class="slidecontainer">   <input type="range" min="1" max="100" value="234" class="slider2" id="myRangemusic">
+            <td class="slidecontainer">   <input type="range" min="1" max="100" value="36" class="slider2" id="myRangemusic">
             <p>Volume: <span id="demomusic"></span></p>
           </td>
           </tr>
@@ -313,7 +319,7 @@ body {font-size:16px;}
  <!-- Slideshow Header -->
         <div class="w3-container2" id="apartment">
           <div class="2">
-            <video width="450" controls>
+            <video width="400" controls>
                <source src="musiccalm.mp4" type="video/mp4">
             </video>
                  </div>
