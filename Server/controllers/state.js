@@ -12,6 +12,7 @@ var requestState = function (req, res) {
 
     const requestedState = serverState[division][type][object];
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(200).send(requestedState);
 };
 
