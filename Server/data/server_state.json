@@ -13,5 +13,21 @@
       "tv": "0",
       "music": "100"
     }
+  },
+  "kitchen": {
+    "lights": {
+      "tall_lamp": "0",
+      "ceiling_lamp": "1",
+      "oven_lamp": "0"
+    },
+    "temperature": {
+      "heating_device": "22"
+    },
+    "appliances": {
+      "oven": "1",
+      "dishwasher": "0",
+      "washing_machine": "0",
+      "fridge": "1"
+    }
   }
 }
