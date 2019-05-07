@@ -1,0 +1,70 @@
+.logo {
+  width: 120px;
+  height: 31px;
+  margin: 16px 28px 16px 0;
+  float: right;
+}
+
+.logo img{
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.ant-layout {
+  margin: 4% 10%;
+}
+.ant-layout-header {
+  background: #01b18e;
+  padding: 1vh;
+  border: 1px solid #585858;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ant-layout-header h2{
+  margin-left: 2%;
+  color: #fff;
+}
+
+.ant-layout-content {
+  background: #c9fddd;
+  padding: 2%;
+  border: 1px solid #585858;
+  border-top: 0px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content {
+  margin-top: -16px;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+  background: #fff;
+  padding: 3% 5%;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-bar {
+  border-color: #fff;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  border-color: transparent;
+  background: transparent;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+  border-color: #fff;
+  background: #fff;
+  color: dimgrey;
+}
+
+.ant-switch {
+  margin-right: 2%;
+}
+.ant-switch-checked {
+  background-color: #01b18e;
+}
+
+.ant-row {
+  margin-bottom: 3%;
+}
