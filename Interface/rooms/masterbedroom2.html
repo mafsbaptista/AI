@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="../script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    init();
+  });
+</script>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 body {font-size:16px;}
@@ -36,11 +44,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>HomeControl<br></b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Main Control Panel</a> 
-    <a href="#generalsettings" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">General Settings</a> 
-    <a href="#lighting" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Lighting</a> 
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Main Control Panel</a>
+    <a href="#generalsettings" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">General Settings</a>
+    <a href="#lighting" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Lighting</a>
     <a href="#temperature" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Temperature</a>
-    <a href="#entertainment" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Entertainment</a> 
+    <a href="#entertainment" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Entertainment</a>
   </div>
 </nav>
 
@@ -62,7 +70,7 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge w3-text-teal"><b>General Seetings</b></h1>
     <hr style="width:50px;border:5px solid teal" class="w3-round">
   </div>
-  
+
  <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
 
@@ -71,27 +79,27 @@ body {font-size:16px;}
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td>All Appliances</td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,appliances">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
           </tr>
            <tr>
             <td>All Lights</td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,lights">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
           </tr>
            <tr>
             <td>All Heating Devices</td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,temperature">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -102,12 +110,12 @@ body {font-size:16px;}
 
 
 
-  
+
   <!-- Lighting -->
   <div class="w3-container" id="lighting" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-teal"><b>Lighting</b></h1>
     <hr style="width:50px;border:5px solid teal" class="w3-round">
- 
+
 
  <!-- Switch table -->
   <div class="w3-panel">
@@ -129,36 +137,36 @@ body {font-size:16px;}
           </tr>
           <tr>
             <td>Tall lamp</td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,lights,tall_lamp">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
           </tr>
           <tr>
             <td>Nightstand lamp</td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,lights,nightstand_lamp">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
           </tr>
            <tr>
             <td>Ceiling lamp </td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox" checked>
+                  <input type="checkbox" name="masterbedroom,lights,ceiling_lamp">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
           </tr>
           <tr>
             <td>Desk lamp</td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,lights,desk_lamp">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -220,12 +228,12 @@ body {font-size:16px;}
 
 
 
-  
+
   <!-- Temperature -->
   <div class="w3-container" id="temperature" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-teal"><b>Temperature</b></h1>
     <hr style="width:50px;border:5px solid teal" class="w3-round">
- 
+
 
  <!-- Switch table -->
   <div class="w3-panel">
@@ -236,9 +244,9 @@ body {font-size:16px;}
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td>Heating Device </td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,temperature,heating_device">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -255,7 +263,7 @@ body {font-size:16px;}
 
       <div class="w3-half">
 
-        
+
  <!-- Slideshow Header -->
         <div class="w3-container2" id="apartment">
           <div class="w3-display-container mySlides2">
@@ -270,7 +278,7 @@ body {font-size:16px;}
          <div class="w3-col s3">
            <img class="demo2 w3-opacity w3-hover-opacity-off" src="images/heater.png" style="width:100%;cursor:pointer" onclick="currentDiv2(1)" title="Living room">
          </div>
-         
+
       </div>
  <!-- end container -->
       </div>
@@ -285,7 +293,7 @@ body {font-size:16px;}
  <div class="w3-container" id="entertainment" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-teal"><b>Entertainment</b></h1>
     <hr style="width:50px;border:5px solid teal" class="w3-round">
- 
+
 
  <!-- Switch table -->
   <div class="w3-panel">
@@ -296,9 +304,9 @@ body {font-size:16px;}
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td>TV </td>
-            <td><i>  
+            <td><i>
                <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" name="masterbedroom,appliances,tv">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -315,7 +323,7 @@ body {font-size:16px;}
 
       <div class="w3-half">
 
-        
+
  <!-- Slideshow Header -->
         <div class="w3-container2" id="apartment">
           <div class="2">
@@ -365,7 +373,7 @@ function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
@@ -577,7 +585,7 @@ document.addEventListener("click", closeAllSelect);
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
