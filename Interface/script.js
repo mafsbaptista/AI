@@ -1,4 +1,4 @@
-const server_url = "http://homecontrolserver.herokuapp.com";
+const server_url = "https://homecontrolserver.herokuapp.com";
 
 function init() {
   const inputs = $('div').find('input');
@@ -36,8 +36,26 @@ function getStateCheckBox(checkbox, division, type, object) {
     });
 }
 
+function changeState(checkbox, division, type, object) {
+  const request_url = server_url + "/" + division + "/" + type + "/" + object;
+
+  const newstate = (checkbox.checked ? "1" : "0");
+  const state = {state: newstate };
+
+  const request = new Request(request_url, {
+    method: 'POST',
+    mode: 'cors',
+    redirect: 'follow',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+    body: JSON.stringify(state),
+  });
+
+  fetch(request)
+  .then(response => response.json());
+}
+
 function getFields(string) {
-  let fields = string.split(',');
-  console.log(fields);
-  return fields;
+  return string.split(',');
 }

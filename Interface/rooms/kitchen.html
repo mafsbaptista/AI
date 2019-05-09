@@ -139,7 +139,8 @@ body {font-size:16px;}
             <td>Tall lamp</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="kitchen,lights,tall_lamp">
+                  <input type="checkbox" name="kitchen,lights,tall_lamp"
+                         onchange="changeState(this, 'kitchen', 'lights', 'tall_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -148,7 +149,8 @@ body {font-size:16px;}
             <td>Ceiling lamp </td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,lights,ceiling_lamp">
+                   <input type="checkbox" name="kitchen,lights,ceiling_lamp"
+                          onchange="changeState(this, 'kitchen', 'lights', 'ceiling_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -157,7 +159,8 @@ body {font-size:16px;}
             <td>Oven lamp</td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,lights,oven_lamp">
+                   <input type="checkbox" name="kitchen,lights,oven_lamp"
+                          onchange="changeState(this, 'kitchen', 'lights', 'oven_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -234,7 +237,8 @@ body {font-size:16px;}
             <td>Heating Device </td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,temperature,heating_device">
+                   <input type="checkbox" name="kitchen,temperature,heating_device"
+                          onchange="changeState(this,'kitchen', 'temperature', 'heating_device')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -295,7 +299,8 @@ body {font-size:16px;}
             <td>Oven</td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,appliances,oven">
+                   <input type="checkbox" name="kitchen,appliances,oven"
+                          onchange="changeState(this, 'kitchen', 'appliances', 'oven')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -304,7 +309,8 @@ body {font-size:16px;}
             <td>Dish Washer</td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,appliances,dishwasher">
+                   <input type="checkbox" name="kitchen,appliances,dishwasher"
+                          onchange="changeState(this, 'kitchen', 'appliances', 'dishwasher')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -313,7 +319,8 @@ body {font-size:16px;}
             <td>Washing Machine</td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,appliances,washing_mashine">
+                   <input type="checkbox" name="kitchen,appliances,washing_mashine"
+                          onchange="changeState(this, 'kitchen', 'appliances', 'washing_machine')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -322,7 +329,8 @@ body {font-size:16px;}
             <td>Fridge</td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,appliances,fridge">
+                   <input type="checkbox" name="kitchen,appliances,fridge"
+                          onchange="changeState(this, 'kitchen', 'appliances', 'fridge')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
