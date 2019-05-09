@@ -88,12 +88,12 @@ ul li:hover {
   background: #ddd;
 }
 
-/* When clicked on, add a background color and strike out text */
+/* When clicked on, add a background color and strike out text 
 ul li.checked {
   background: #888;
   color: #fff;
-  /*text-decoration: line-through;*/
-}
+  text-decoration: line-through;
+}*/
 
 /* Add a "checked" mark when clicked on 
 ul li.checked::before {
@@ -166,6 +166,49 @@ input {
   background-color: #bbb;
 }
 
+
+
+
+
+
+/**HOVER WHO'S IN THE HOUSE**/
+
+.container {
+  position: relative;
+
+}
+
+.image {
+  display: block;
+  height: auto;
+}
+
+.overlay2 {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(192,192,192,0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay2 {
+  opacity: 1;
+
+
+
+
+
+
+
+}
+
 </style>
 
 <head>
@@ -175,10 +218,12 @@ input {
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  
   <h3 class="w3-padding-64 w3-center"><b>Welcome Home,<br>Rita</b></h3>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
   <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">CONTROL PANEL</a> 
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">NOTIFICATION PANEL</a> 
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">NOTIFICATION PANEL</a>
+  <a href="#presence" onclick="w3_close()" class="w3-bar-item w3-button">PRESENCE PANEL</a>  
 </nav>
 
 <!-- Top menu on small screens -->
@@ -188,7 +233,7 @@ input {
 
 <!-- Favicon icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="images/logonbks.ico" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
@@ -223,7 +268,7 @@ input {
     <th class="container"><a href="rooms/bathroom.html">
       <img src="images/bathroom4.jpg" style="width:100%" onclick="onClick(this)" alt="bathroom">
          <div class="overlay"> <div class="text">Enter Bathroom</div> </div> </a></th>
-    <th class="container"><a href="rooms/masterbedroom.html">
+    <th class="container"><a href="rooms/diningroom.html">
       <img src="images/diningroom4.jpg" style="width:100%" onclick="onClick(this)" alt="diningroom">
          <div class="overlay"> <div class="text">Enter Dining Room</div> </div> </a></th>
     <th class="container"><a href="rooms/kitchen.html">
@@ -239,7 +284,7 @@ input {
 
   <!-- About section -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
-    <div class="w3-content w3-justify" style="max-width:60%">
+    <div class="w3-content w3-justify" style="max-width:60%;min-height:550px ">
 
       <div id="myDIV" class="header">
       <h2>Notification Panel</h2>
@@ -248,12 +293,12 @@ input {
       </div>
 
     <ul class = "w3-text-black" id="myUL">
-      <li>Bedroom Celing Light is ON</li>
+      <li>Bedroom Ceiling Light is ON</li>
       <li class="checked">TV in the livingroom is ON</li>
       <li>Kitchen oven is ON. Will turn OFF in 30min. </li>
        <li>Kitchen alarm in go off at 17:00</li>
        <li>House thermostat is set to 22ºC</li>
-       <li>Wasing machine filter need replacing.</li>
+       <li>Washing machine filter need replacing.</li>
     </ul>
 
       <p>Manual and automatic control </p>
@@ -265,6 +310,36 @@ input {
     </div>
   </div>
 
+
+
+
+  <!-- Contact section -->
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="presence">
+    <div class="w3-content" style="max-width:600px;min-height:320px ">
+      <h4 class="w3-center"><b>Presence Panel</b></h4>
+      <p class="w3-center">Who's in the house right now?</p>
+      
+      <table class="box">
+  <tr>
+    <th class="container">
+      <img src="images/people/Eric.jpg" style="width:100%" onclick="onClick(this)" alt="masterbedroom"> 
+        <div class="overlay2"> <div class="text">Eric</div> </div></th>
+    <th class="container">
+      <img src="images/people/Amy.jpg" style="width:100%" onclick="onClick(this)" alt="livingroom">
+        <div class="overlay2"> <div class="text">Amy</div> </div></th> 
+    <th class="container">
+      <img src="images/people/Rita.jpg" style="width:100%" onclick="onClick(this)" alt="single bedroom">
+          <div class="overlay2"> <div class="text">Rita</div> </div></th>
+    </tr>
+      </table>
+
+
+
+    </div>
+  </div>
+
+
+
  
 
   <!-- Footer 
@@ -272,7 +347,7 @@ input {
 
   </footer>-->
   
-  <div class="w3-black w3-center w3-padding-24">Powered by <a  title="W3.CSS" target="_blank" class="w3-hover-opacity">HomeControl</a></div>
+  <div class="w3-black w3-center w3-padding-24">Powered by <a  title="W3.CSS" target="_blank" class="w3-hover-opacity">HomeControl</a> </div>
 
 <!-- End page content -->
 </div>
