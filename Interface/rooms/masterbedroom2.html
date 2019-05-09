@@ -140,7 +140,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="masterbedroom,lights,tall_lamp"
-                         onchange="changeState(this, 'masterbedroom', 'lights', 'tall_lamp')">
+                         onchange="changeCheckBoxState(this, 'masterbedroom', 'lights', 'tall_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -150,7 +150,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="masterbedroom,lights,nightstand_lamp"
-                         onchange="changeState(this, 'masterbedroom', 'lights', 'nightstand_lamp')">
+                         onchange="changeCheckBoxState(this, 'masterbedroom', 'lights', 'nightstand_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -160,7 +160,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="masterbedroom,lights,ceiling_lamp"
-                         onchange="changeState(this, 'masterbedroom', 'lights', 'ceiling_lamp')">
+                         onchange="changeCheckBoxState(this, 'masterbedroom', 'lights', 'ceiling_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -170,7 +170,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="masterbedroom,lights,desk_lamp"
-                         onchange="changeState(this, 'masterbedroom', 'lights', 'desk_lamp')">
+                         onchange="changeCheckBoxState(this, 'masterbedroom', 'lights', 'desk_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -251,15 +251,17 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="masterbedroom,temperature,heating_device"
-                         onchange="changeState(this, 'masterbedroom', 'temperature', 'heating_device')">
+                         onchange="changeCheckBoxState(this, 'masterbedroom', 'temperature', 'heating_device')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
           </tr>
           <tr>
             <td>Adjust temperature according to the weather outside</td>
-            <td class="slidecontainer">   <input type="range" min="1" max="30" value="22" class="slider2" id="myRange">
-            <p>Temp: <span id="demo"></span></p>
+            <td class="slidecontainer">
+                <input type="range" min="1" max="30" value="22" class="slider2" id="temperature"
+                       name="masterbedroom,temperature,temperature">
+            <p>Temp: <span id="temperature_range"></span></p>
           </td>
           </tr>
         </table>
@@ -312,15 +314,17 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="masterbedroom,appliances,tv"
-                         onchange="changeState(this, 'masterbedroom', 'appliances', 'tv')">
+                         onchange="changeCheckBoxState(this, 'masterbedroom', 'appliances', 'tv')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
           </tr>
           <tr>
             <td>Music</td>
-            <td class="slidecontainer">   <input type="range" min="1" max="100" value="36" class="slider2" id="myRangemusic">
-            <p>Volume: <span id="demomusic"></span></p>
+            <td class="slidecontainer">
+                <input type="range" min="1" max="100" value="36" class="slider2" id="music"
+                       name="masterbedroom,appliances,music">
+            <p>Volume: <span id="music_range"></span></p>
           </td>
           </tr>
         </table>
@@ -461,26 +465,6 @@ function showDivs2(n) {
 
 
 
-// Round Temperature Slider
-var slider2 = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider2.value;
-
-slider2.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-
-
-
-// Round Temperature Slider
-var slider2 = document.getElementById("myRangemusic");
-var outputmusic = document.getElementById("demomusic");
-outputmusic.innerHTML = slider2.value;
-
-slider2.oninput = function() {
-  outputmusic.innerHTML = this.value;
-}
 
 
 

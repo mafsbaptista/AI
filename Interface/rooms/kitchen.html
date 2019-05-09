@@ -140,7 +140,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                   <input type="checkbox" name="kitchen,lights,tall_lamp"
-                         onchange="changeState(this, 'kitchen', 'lights', 'tall_lamp')">
+                         onchange="changeCheckBoxState(this, 'kitchen', 'lights', 'tall_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -150,7 +150,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,lights,ceiling_lamp"
-                          onchange="changeState(this, 'kitchen', 'lights', 'ceiling_lamp')">
+                          onchange="changeCheckBoxState(this, 'kitchen', 'lights', 'ceiling_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -160,7 +160,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,lights,oven_lamp"
-                          onchange="changeState(this, 'kitchen', 'lights', 'oven_lamp')">
+                          onchange="changeCheckBoxState(this, 'kitchen', 'lights', 'oven_lamp')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -238,15 +238,17 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,temperature,heating_device"
-                          onchange="changeState(this,'kitchen', 'temperature', 'heating_device')">
+                          onchange="changeCheckBoxState(this,'kitchen', 'temperature', 'heating_device')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
           </tr>
           <tr>
             <td>Adjust temperature according to the weather outside</td>
-            <td class="slidecontainer">   <input type="range" min="1" max="30" value="22" class="slider2" id="myRange">
-            <p>Temp: <span id="demo"></span></p>
+            <td class="slidecontainer">
+                <input type="range" min="1" max="30" value="22" class="slider2" id="temperature"
+                       name="kitchen,temperature,temperature">
+            <p>Temp: <span id="temperature_range"></span></p>
           </td>
           </tr>
         </table>
@@ -300,7 +302,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,appliances,oven"
-                          onchange="changeState(this, 'kitchen', 'appliances', 'oven')">
+                          onchange="changeCheckBoxState(this, 'kitchen', 'appliances', 'oven')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -310,7 +312,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,appliances,dishwasher"
-                          onchange="changeState(this, 'kitchen', 'appliances', 'dishwasher')">
+                          onchange="changeCheckBoxState(this, 'kitchen', 'appliances', 'dishwasher')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -319,8 +321,8 @@ body {font-size:16px;}
             <td>Washing Machine</td>
             <td><i>
                <label class="switch">
-                   <input type="checkbox" name="kitchen,appliances,washing_mashine"
-                          onchange="changeState(this, 'kitchen', 'appliances', 'washing_machine')">
+                   <input type="checkbox" name="kitchen,appliances,washing_machine"
+                          onchange="changeCheckBoxState(this, 'kitchen', 'appliances', 'washing_machine')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -330,7 +332,7 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,appliances,fridge"
-                          onchange="changeState(this, 'kitchen', 'appliances', 'fridge')">
+                          onchange="changeCheckBoxState(this, 'kitchen', 'appliances', 'fridge')">
                   <span class="slider round"></span>
                </label> <br>
             </i></td>
@@ -525,17 +527,6 @@ function showDivs3(n) {
   dots3[slideIndex3-1].className += " w3-opacity-off";
 }
 
-
-
-
-// Round Temperature Slider
-var slider2 = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider2.value;
-
-slider2.oninput = function() {
-  output.innerHTML = this.value;
-}
 
 
 
