@@ -7,7 +7,7 @@
       "desk_lamp": "0"
     },
     "temperature": {
-      "heating_device": "22",
+      "heating_device": "1",
       "temperature": "24"
     },
     "appliances": {
@@ -22,14 +22,14 @@
       "oven_lamp": "0"
     },
     "temperature": {
-      "heating_device": "22",
-      "temperature": "21"
+      "heating_device": "1",
+      "temperature": "15"
     },
     "appliances": {
-      "oven": "1",
+      "oven": "0",
       "dishwasher": "0",
       "washing_machine": "0",
-      "fridge": "1"
+      "fridge": "0"
     }
   }
 }
