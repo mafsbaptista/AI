@@ -43,8 +43,7 @@ function getStateCheckBox(checkbox, division, type, object) {
 }
 
 function getStateRange(range, division, type, object) {
-  let output = document.getElementById(range.id + "_range");
-  console.log(output);
+  let output = document.getElementById(range.id + "range");
   const request_url = server_url + "/" + division + "/" + type + "/" + object;
   const headers = {
     Accept: 'application/json',
@@ -62,8 +61,6 @@ function getStateRange(range, division, type, object) {
   })
   .then(response => response.json())
   .then(response => {
-    console.log(range);
-    console.log(response);
     range.value = response;
     output.innerHTML = response;
   });
@@ -86,7 +83,28 @@ function changeCheckBoxState(checkbox, division, type, object) {
   });
 
   fetch(request)
-  .then(response => response.json());
+  .then(function() {});
+}
+
+function changeRangeState(range, division, type, object) {
+  let output = document.getElementById(range.id + "range");
+
+  const request_url = server_url + "/" + division + "/" + type + "/" + object;
+
+  const newstate = range.value;
+  const state = {state: newstate };
+  const request = new Request(request_url, {
+    method: 'POST',
+    mode: 'cors',
+    redirect: 'follow',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+    body: JSON.stringify(state),
+  });
+
+  fetch(request)
+  .then(output.innerHTML = newstate);
 }
 
 function getFields(string) {
