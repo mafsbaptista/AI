@@ -81,7 +81,8 @@ body {font-size:16px;}
             <td>All Appliances</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="kitchen,appliances">
+                  <input type="checkbox" name="kitchen,appliances"
+                         onchange="requestStateAllEqual(this, 'kitchen','appliances')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -90,7 +91,8 @@ body {font-size:16px;}
             <td>All Lights</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="kitchen,lights">
+                  <input type="checkbox" name="kitchen,lights"
+                         onchange="requestStateAllEqual(this, 'kitchen','lights')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -99,7 +101,8 @@ body {font-size:16px;}
             <td>All Heating Devices</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="kitchen,temperature">
+                  <input type="checkbox" name="kitchen,temperature"
+                         onchange="requestStateAllEqual(this, 'kitchen','temperature')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
