@@ -9,8 +9,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script type="text/javascript">
-  $(document).ready(function(){
-    init();
+  $(document).ready(async function(){
+    while (true) {
+      init();
+      await sleep(1000);
+    }
+
   });
 </script>
 <style>
@@ -81,7 +85,8 @@ body {font-size:16px;}
             <td>All Appliances</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="masterbedroom,appliances">
+                  <input type="checkbox" name="masterbedroom,appliances"
+                    onchange="requestStateAllEqual(this, 'masterbedroom', 'appliances')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -90,7 +95,8 @@ body {font-size:16px;}
             <td>All Lights</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="masterbedroom,lights">
+                  <input type="checkbox" name="masterbedroom,lights"
+                  onchange="requestStateAllEqual(this, 'masterbedroom', 'lights')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -99,7 +105,8 @@ body {font-size:16px;}
             <td>All Heating Devices</td>
             <td><i>
                <label class="switch">
-                  <input type="checkbox" name="masterbedroom,temperature">
+                  <input type="checkbox" name="masterbedroom,temperature"
+                  onchange="requestStateAllEqual(this, 'masterbedroom', 'temperature')">
                   <span class="slider round"></span>
                  </label> <br>
             </i></td>
@@ -323,15 +330,14 @@ body {font-size:16px;}
           <tr>
             <td>Music</td>
             <td class="slidecontainer">
-                <input type="range" min="1" max="100" value="36" class="slider2" id="music_"
+                <input type="range" min="0" max="99" value="36" class="slider2" id="music_"
                        name="masterbedroom,appliances,music"
-                       onchange="changeRangeState(this, 'masterbedroom', 'appliances', 'music')">>
-            <p>Volume: <span id="music_range"></span></p>
+                       onchange="changeRangeState(this, 'masterbedroom', 'appliances', 'music')">
+            <p>Vol: <span id="music_range"></span></p>
           </td>
           </tr>
         </table>
       </div>
-
 
       <div class="w3-half">
 

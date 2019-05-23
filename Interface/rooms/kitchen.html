@@ -9,8 +9,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script type="text/javascript">
-  $(document).ready(function(){
-    init();
+  $(document).ready(async function(){
+    while (true) {
+      init();
+      changeOvenTemperature();
+      await sleep(1000);
+    }
+
   });
 </script>
 
@@ -306,10 +311,14 @@ body {font-size:16px;}
             <td><i>
                <label class="switch">
                    <input type="checkbox" name="kitchen,appliances,oven"
-                          onchange="changeCheckBoxState(this, 'kitchen', 'appliances', 'oven')">
+                          onchange="changeCheckBoxState(this, 'kitchen', 'appliances', 'oven'); changeOvenTemperature();">
                   <span class="slider round"></span>
                </label> <br>
-            </i></td>
+            </i>
+                <input type="range" hidden min="0" max="99" value="36" class="slider2" id="oven_temperature_"
+                       name="kitchen,appliances,oven_temperature">
+                <p id="oven_temperature">Temp: <span id="oven_temperature_range"></span></p>
+            </td>
           </tr>
           <tr>
             <td>Dish Washer</td>

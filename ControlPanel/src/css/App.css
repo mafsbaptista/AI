@@ -1,7 +1,6 @@
 .logo {
-  width: 120px;
-  height: 31px;
-  margin: 16px 28px 16px 0;
+  height: 100%;
+  margin-right: 2%;
   float: right;
 }
 
@@ -12,8 +11,9 @@
 }
 
 .ant-layout {
-  margin: 4% 10%;
+  margin: 2% 5%;
 }
+
 .ant-layout-header {
   background: #01b18e;
   padding: 1vh;

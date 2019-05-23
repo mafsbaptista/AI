@@ -14,7 +14,6 @@ function init() {
     } else if (inputs[i].type === 'range') {
       let fields = getFields(inputs[i].name);
       getStateRange(inputs[i], fields[0], fields[1], fields[2]);
-
     }
   }
 }
@@ -105,7 +104,7 @@ function changeCheckBoxState(checkbox, division, type, object) {
   });
 
   fetch(request)
-  .then(init());
+  .then({});
 }
 
 function changeRangeState(range, division, type, object) {
@@ -146,9 +145,19 @@ function requestStateAllEqual(checkbox, division, type) {
   });
 
   fetch(request)
-  .then(init());
+  .then({});
+}
+
+function changeOvenTemperature() {
+  let checked = document.getElementsByName('kitchen,appliances,oven')[0].checked;
+  document.getElementById("oven_temperature").hidden = !checked;
 }
 
 function getFields(string) {
   return string.split(',');
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
