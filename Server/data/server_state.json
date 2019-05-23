@@ -27,6 +27,7 @@
     },
     "appliances": {
       "oven": "0",
+      "oven_temperature": "0",
       "dishwasher": "0",
       "washing_machine": "0",
       "fridge": "0"
