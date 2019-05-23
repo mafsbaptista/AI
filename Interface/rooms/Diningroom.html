@@ -71,30 +71,15 @@ body {font-size:16px;}
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td>All Appliances</td>
-            <td><i>  
-               <label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                 </label> <br>
-            </i></td>
+            <td><button class="button button2">Turn Off</button></td>
           </tr>
            <tr>
             <td>All Lights</td>
-            <td><i>  
-               <label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                 </label> <br>
-            </i></td>
+            <td><button class="button button2">Turn Off</button></td>
           </tr>
            <tr>
             <td>All Heating Devices</td>
-            <td><i>  
-               <label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                 </label> <br>
-            </i></td>
+            <td><button class="button button2">Turn Off</button></td>
           </tr>
         </table>
       </div>
@@ -137,7 +122,7 @@ body {font-size:16px;}
             </i></td>
           </tr>
           <tr>
-            <td>Nightstand lamp</td>
+            <td>Tall Lamp2</td>
             <td><i>  
                <label class="switch">
                   <input type="checkbox">
@@ -154,15 +139,6 @@ body {font-size:16px;}
                </label> <br>
             </i></td>
           </tr>
-          <tr>
-            <td>Desk lamp</td>
-            <td><i>  
-               <label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-               </label> <br>
-            </i></td>
-          </tr>
         </table>
       </div>
 
@@ -171,43 +147,35 @@ body {font-size:16px;}
  <!-- Slideshow Header -->
                <div class="w3-container" id="apartment">
           <div class="w3-display-container mySlides">
-              <img src="images/talllamp.png" style="width:100%;margin-bottom:-6px">
+              <img src="images/diningroom/talllamp.png" style="width:100%;margin-bottom:-6px">
                  <div class="w3-display-bottomleft w3-container w3-black">
                    <p>Tall Lamp</p>
                  </div>
           </div>
           <div class="w3-display-container mySlides">
-            <img src="images/nighstandlamp.png" style="width:100%;margin-bottom:-6px">
+            <img src="images/diningroom/ceilinglamp.png" style="width:100%;margin-bottom:-6px">
               <div class="w3-display-bottomleft w3-container w3-black">
-                <p>Nightstand Lamp</p>
+                <p>Tall Lamp2</p>
               </div>
          </div>
          <div class="w3-display-container mySlides">
-           <img src="images/ceilinglamp.png" style="width:100%;margin-bottom:-6px">
+           <img src="images/diningroom/ceilinglamp2.png" style="width:100%;margin-bottom:-6px">
               <div class="w3-display-bottomleft w3-container w3-black">
-                <p>Ceiling Lamp</p>
+                <p>CeilimgLamp</p>
               </div>
           </div>
-          <div class="w3-display-container mySlides">
-              <img src="images/desklamp.png" style="width:100%;margin-bottom:-6px">
-                 <div class="w3-display-bottomleft w3-container w3-black">
-                   <p>Desk Lamp</p>
-                 </div>
-         </div>
         </div>
       <div class="w3-row-padding w3-section">
          <div class="w3-col s3">
-           <img class="demo w3-opacity w3-hover-opacity-off" src="images/talllamp.png" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Tall Lamp">
+           <img class="demo w3-opacity w3-hover-opacity-off" src="images/diningroom/talllamp.png" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Tall Lamp2">
          </div>
          <div class="w3-col s3">
-           <img class="demo w3-opacity w3-hover-opacity-off" src="images/nighstandlamp.png" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Night Stand Lamp">
+           <img class="demo w3-opacity w3-hover-opacity-off" src="images/diningroom/ceilinglamp.png" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Night Stand Lamp">
          </div>
          <div class="w3-col s3">
-           <img class="demo w3-opacity w3-hover-opacity-off" src="images/ceilinglamp.png" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Ceiling Lamp">
+           <img class="demo w3-opacity w3-hover-opacity-off" src="images/diningroom/ceilinglamp2.png" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Ceiling Lamp">
         </div>
-        <div class="w3-col s3">
-           <img class="demo w3-opacity w3-hover-opacity-off" src="images/desklamp.png" style="width:100%;cursor:pointer" onclick="currentDiv(4)" title="Desk Lamp">
-        </div>
+       
       </div>
  <!-- end container -->
       </div>
@@ -259,7 +227,7 @@ body {font-size:16px;}
  <!-- Slideshow Header -->
         <div class="w3-container2" id="apartment">
           <div class="w3-display-container mySlides2">
-              <img src="images/heater.png" style="width:100%;margin-bottom:-6px">
+              <img src="images/diningroom/heater.png" style="width:100%;margin-bottom:-6px">
                  <div class="w3-display-bottomleft w3-container2 w3-black">
                    <p>Heater</p>
                  </div>
@@ -268,7 +236,7 @@ body {font-size:16px;}
 
       <div class="w3-row-padding w3-section">
          <div class="w3-col s3">
-           <img class="demo2 w3-opacity w3-hover-opacity-off" src="images/heater.png" style="width:100%;cursor:pointer" onclick="currentDiv2(1)" title="Living room">
+           <img class="demo2 w3-opacity w3-hover-opacity-off" src="images/diningroom/heater.png" style="width:100%;cursor:pointer" onclick="currentDiv2(1)" title="Living room">
          </div>
          
       </div>
@@ -737,6 +705,90 @@ input:checked + .slider:before {
 
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*Light select box*/
+/*the container must be positioned relative:*/
+.custom-select2 {
+  position: relative;
+  font-family: "Raleway", sans-serif;
+
+}
+
+.custom-select2 select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #01b18e;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #01b18e;
+  top: 90%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button {
+  background-color: #01b18e; /* Colour */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 </style>
 
