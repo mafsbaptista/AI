@@ -12,6 +12,16 @@ var requestState = function (req, res) {
 
     const requestedState = serverState[division][type][object];
 
+    res.io
+    .emit('arduinoState', {
+        state: {
+            division: division,
+            type: type,
+            object: object,
+            state: requestedState
+        }
+    });
+
     res.status(200).send(requestedState);
 };
 
