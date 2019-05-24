@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>HomeControl</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -83,33 +83,18 @@ body {font-size:16px;}
         <table class="w3-table w3-striped w3-white">
           <tr>
             <td>All Appliances</td>
-            <td><i>
-               <label class="switch">
-                  <input type="checkbox" name="masterbedroom,appliances"
-                    onchange="requestStateAllEqual(this, 'masterbedroom', 'appliances')">
-                  <span class="slider round"></span>
-                 </label> <br>
-            </i></td>
+            <td><button class="button button2" name="masterbedroom,appliances"
+                        onclick="requestStateAllEqual('masterbedroom', 'appliances')">Turn Off</button></td>
           </tr>
            <tr>
             <td>All Lights</td>
-            <td><i>
-               <label class="switch">
-                  <input type="checkbox" name="masterbedroom,lights"
-                  onchange="requestStateAllEqual(this, 'masterbedroom', 'lights')">
-                  <span class="slider round"></span>
-                 </label> <br>
-            </i></td>
+            <td><button class="button button2" name="masterbedroom,lights"
+                        onclick="requestStateAllEqual('masterbedroom', 'lights')">Turn Off</button></td>
           </tr>
            <tr>
             <td>All Heating Devices</td>
-            <td><i>
-               <label class="switch">
-                  <input type="checkbox" name="masterbedroom,temperature"
-                  onchange="requestStateAllEqual(this, 'masterbedroom', 'temperature')">
-                  <span class="slider round"></span>
-                 </label> <br>
-            </i></td>
+            <td><button class="button button2" name="masterbedroom,temperature"
+                        onclick="requestStateAllEqual('masterbedroom', 'temperature')">Turn Off</button></td>
           </tr>
         </table>
       </div>
@@ -743,6 +728,34 @@ input:checked + .slider:before {
 
 .select-items div:hover, .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button {
+  background-color: #01b18e; /* Colour */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 </style>
 

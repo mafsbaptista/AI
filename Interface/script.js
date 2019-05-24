@@ -128,10 +128,11 @@ function changeRangeState(range, division, type, object) {
   .then(output.innerHTML = newstate);
 }
 
-function requestStateAllEqual(checkbox, division, type) {
+function requestStateAllEqual(division, type) {
+  console.log("Request");
   const request_url = server_url + "/" + division + "/" + type;
 
-  const newstate = (checkbox.checked ? "1" : "0");
+  const newstate = "0";
   const state = {state: newstate };
 
   const request = new Request(request_url, {
