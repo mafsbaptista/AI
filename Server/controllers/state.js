@@ -6,21 +6,23 @@ var filePath = path.join(__dirname, '..', 'data', 'server_state.json');
 var requestState = function (req, res) {
     //Get info about the object
     const {division, type, object} = req.params;
+    const sid = req.headers.sid;
 
     const content = fs.readFileSync(filePath);
     const serverState = JSON.parse(content);
 
     const requestedState = serverState[division][type][object];
-
-    /*res.io
-    .emit('arduinoState', {
-        state: {
-            division: division,
-            type: type,
-            object: object,
-            state: requestedState
-        }
-    });*/
+    if (sid != null) {
+        res.io.to(sid)
+        .emit('arduinoState', {
+            state: {
+                division: division,
+                type: type,
+                object: object,
+                state: requestedState
+            }
+        });
+    }
 
     res.status(200).send(requestedState);
 };
