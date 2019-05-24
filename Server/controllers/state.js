@@ -12,7 +12,7 @@ var requestState = function (req, res) {
 
     const requestedState = serverState[division][type][object];
 
-    res.io
+    /*res.io
     .emit('arduinoState', {
         state: {
             division: division,
@@ -20,7 +20,7 @@ var requestState = function (req, res) {
             object: object,
             state: requestedState
         }
-    });
+    });*/
 
     res.status(200).send(requestedState);
 };
