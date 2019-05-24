@@ -10,21 +10,18 @@
 int redLedPin = 9;
 int greenLedPin = 8;
 int buttonPin = 7;
-int buzzerPin = 5;
 int temperaturePotPin = A0;
 int buttonState = 0;
 
 //Temperature sensor values
 int temperature;
-int desiredTemperature = 180;
 
 //Old values
 int oldTemperature = -1;
-int oldOn = 0;
+bool oldOn = false;
 
 
 //Ethernet configurations
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 char server[] = "homecontrolserver.herokuapp.com";    // name address for HomeControl Server (using DNS)
 SocketIOClient client;
 EthernetClient httpclient;
@@ -38,17 +35,16 @@ long interval = 5000;
 
 void setup() {
 
-  //Set pin modes
+  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+  
   pinMode(redLedPin, OUTPUT);
   pinMode(greenLedPin, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
   pinMode(buttonPin, INPUT);
   pinMode(temperaturePotPin, INPUT); //Optional 
   digitalWrite(redLedPin, LOW);
-  digitalWrite(greenLedPin, LOW); //Start with green led off - TODO request state to server
+  digitalWrite(greenLedPin, LOW); //Start with green led off
   Serial.begin(9600);
 
-  playMelody();
 
   //Start the ethernet connection
   Ethernet.init(10);
@@ -67,13 +63,15 @@ void setup() {
   if (!httpclient.connect(server, 80))  shutdown();
   Serial.print("http connected to ");
   Serial.println(httpclient.remoteIP());
-
-  requestState();
-
 }
 
 // the loop function runs over and over again forever
 void loop() {
+
+  if(!httpclient.connected()) {
+    httpclient.stop();
+    httpclient.connect(server, 80);
+  }
 
   //Button status update
   buttonState = digitalRead(buttonPin);
@@ -93,7 +91,7 @@ void loop() {
 
   //If oven is on
   if(digitalRead(greenLedPin) == HIGH) {
-    if (temperature >= desiredTemperature) {
+    if (temperature >= 180) {
       digitalWrite(redLedPin, LOW);
     }
     else {
@@ -104,11 +102,12 @@ void loop() {
   //If there's new messages from the websocket
   if (client.monitor()) {
     Serial.flush();
-
+    
     if(received.length() != 0) {
       
       StaticJsonBuffer<200> jsonBuffer;
       JsonArray& json = jsonBuffer.parseArray(received);
+      Serial.println(received);
   
       if (!json.success()) Serial.println("parse failed!");
   
@@ -128,7 +127,6 @@ void loop() {
           }
         }
       }
-      received = "";
     }
   }
   
@@ -140,18 +138,16 @@ void loop() {
   }
 
   delay(100);
+  updateServerState();
+  oldOn = digitalRead(greenLedPin) == HIGH? 1: 0;
 }
 
 void changeStateUpdate(int newState) {
   if (newState > 0) {
     digitalWrite(greenLedPin, HIGH);
-    tone(buzzerPin, 220, 200);
-    oldOn = true;
   } else {
     digitalWrite(redLedPin, LOW);
     digitalWrite(greenLedPin, LOW);
-    tone(buzzerPin, 220, 200);
-    oldOn = false;
   }
 }
 
@@ -160,14 +156,10 @@ void changeStateButton() {
   if (digitalRead(greenLedPin) == HIGH)  {
     digitalWrite(redLedPin, LOW);
     digitalWrite(greenLedPin, LOW);
-    tone(buzzerPin, 220, 200);
-    oldOn = 0;
     //If oven is turned on
   } else {
     digitalWrite(redLedPin, LOW);
     digitalWrite(greenLedPin, HIGH);
-    tone(buzzerPin, 220, 200);
-    oldOn = 1;
   }
 }
 
@@ -178,36 +170,26 @@ void shutdown() {
   }
 }
 
-void playMelody() {
-  tone(buzzerPin, 740, 300);
-  delay(400);
-  tone(buzzerPin, 740, 700);
-}
 
-void requestState() {
-  String path = "kitchen/appliances/oven";
-  httpclient.println("GET /kitchen/appliances/oven HTTP/1.1");
-  httpclient.println("Host: homecontrolserver.herokuapp.com");
-  httpclient.println();
+void updateServerState() {
+  int ovenOn = digitalRead(greenLedPin) == HIGH? 1: 0;
+  if (temperature < oldTemperature - 10 || temperature > oldTemperature + 10 || ovenOn != oldOn) {
+    Serial.println("Old: " + String(oldTemperature) + ". New: " + String(temperature) + ". oldOn = " + String(oldOn) + ". newOn: " + String(ovenOn));
 
-  char buffer[10];
+    String data = "{\"state\": \"" + String(ovenOn) + "\"}";
+    httpclient.println("POST /kitchen/appliances/oven HTTP/1.1");
+    httpclient.println("Host: homecontrolserver.herokuapp.com");
+    httpclient.println("Content-Type: application/json");
+    httpclient.println("Content-Length:" + String(data.length()));
+    httpclient.println();
+    httpclient.println(data);
 
-  while (true) {
-    if (httpclient.available() > 0) {
-      char c = httpclient.read();
-      if (c == '\n' && httpclient.available() > 0) {
-        httpclient.read();
-        c = httpclient.read();
-        if (c == '\n') {
-          int len = httpclient.available();
-          if (len > 10) len = 10;
-          httpclient.read(buffer, len);
-          if (atoi(buffer) > 0) {
-            digitalWrite(greenLedPin, HIGH);
-          }
-          break;
-        }
-      }
-    }
+    data = "{\"state\": \"" + String(temperature) + "\"}";
+    httpclient.println("POST /kitchen/appliances/oven_temperature HTTP/1.1");
+    httpclient.println("Host: homecontrolserver.herokuapp.com");
+    httpclient.println("Content-Type: application/json");
+    httpclient.println("Content-Length:" + String(data.length()));
+    httpclient.println();
+    httpclient.println(data);
   }
 }

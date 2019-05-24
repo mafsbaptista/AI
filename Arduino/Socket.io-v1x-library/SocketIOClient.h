@@ -51,16 +51,7 @@ public:
 	void disconnect();
 	bool reconnect(char hostname[], int port = 80);
 	bool monitor();
-	void sendMessage(String message = "");
-	void send(String RID, String Rname, String Rcontent);
-	void sendNSP();
-	void sendJSON(String RID, String JSON);
 	void heartbeat(int select);
-	void clear();
-	void getREST(String path);
-	void postREST(String path, String type, String data);
-	void putREST(String path, String type, String data);
-	void deleteREST(String path);
 private:
 	void parser(int index);
 	void sendHandshake(char hostname[]);
@@ -73,15 +64,11 @@ private:
 
 	bool readHandshake();
 	void readLine();
-	char *dataptr;
 	char databuffer[DATA_BUFFER_LEN];
 	char sid[SID_LEN];
-	char key[28];
 	char *hostname;
 	int port;
 
-	void findColon(char which);
-	void terminateCommand(void);
 	bool waitForInput(void);
 	void eatHeader(void);
 };
